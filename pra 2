@@ -1,0 +1,108 @@
+//#code 1 insertion of element in array
+
+#include <stdio.h>
+
+int main() {
+    int n,opt,opt1,opt2,opt3,pos;
+    int a[100];
+    printf("ENter the size of array:\n");
+    scanf("%d",&n);
+    printf("Enter array elements :\n");
+    for(int i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    printf("The Entered array is :\n");
+    for(int i=0;i<n;i++){
+        printf("%d ",a[i]);
+    }
+    printf("\nTheir are three options :\n");
+    printf("\n 1-Insert element at beginning :\n");
+       printf("\n 2-Insert element at end :\n");
+          printf("\n 3-Insert element at specific position :\n");
+scanf("%d",&opt);
+    if(opt==1){
+        printf("Enter value to insert at beginning :\n",n);
+        scanf("%d",&opt1);
+        for(int i=n;i>0;i--){
+        a[i]=a[i-1];
+    }
+    a[0]=opt1;
+    n++;
+    }
+    else if(opt==2){
+    printf("ENter value to insert at end:\n",n);
+    scanf("%d",&opt2);
+    a[n]=opt2;
+    n++;
+    }
+    else if(opt==3){
+        printf("Enter position to insert:\n");
+        scanf("%d",&pos);
+        printf("ENter value to insert at specific position :\n");
+        scanf("%d",&opt3);
+         for(int i=n;i>pos;i--){
+        a[i]=a[i-1];
+    }
+    a[pos]=opt3;
+    n++;}
+    else{
+        printf("Invalid choosed option ");
+    }
+    printf("updated array elements are :\n");
+             for(int i=0;i<n;i++){
+        printf("%d ",a[i]);
+    }
+return 0;
+}
+
+// #code 2 deletion of array elements
+
+#include <stdio.h>
+
+int main() {
+    int n,opt,opt1,opt2,opt3,pos;
+    int a[100];
+    printf("ENter the size of array:\n");
+    scanf("%d",&n);
+    printf("Enter array elements :\n");
+    for(int i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+    printf("The Entered array elements are :\n");
+    for(int i=0;i<n;i++){
+        printf("%d ",a[i]);
+    }
+    printf("\n");
+    printf("\n options are :\n");
+    printf("\n 1-for delete element at beginning :\n");
+       printf("\n 2-for delete element at end :\n");
+          printf("\n 3-for delete element at specific position :\n");
+scanf("%d",&opt);
+    if(opt==1){
+    
+        for(int i=0;i<n;i++){
+        a[i]=a[i+1];
+    }
+    n--;
+    }
+    else if(opt==2){
+    n--;
+    }
+    else if(opt==3){
+        printf("Enter position to delete element:\n");
+        scanf("%d",&pos);
+         for(int i=pos;i<n;i++){
+        a[i]=a[i+1];
+    }
+    n--;
+        
+    }
+    else{
+        printf("Invalid choosed option ");
+    }
+    printf("updated array elements is :\n");
+             for(int i=0;i<n;i++){
+        printf("%d ",a[i]);
+    }
+return 0;
+}
