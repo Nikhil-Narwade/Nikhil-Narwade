@@ -1,0 +1,456 @@
+# INSERT AT BEG #
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node* next;
+};
+
+
+void insertatbeg(struct node** head_ref) {
+    struct node* newhead = (struct node*)malloc(sizeof(struct node));
+    printf("Enter the data of the new head that you want to insert: ");
+    scanf("%d", &newhead->data);
+    newhead->next = *head_ref;
+    *head_ref = newhead;
+}
+
+int main() {
+    int n;
+    printf("Enter the number of nodes you want to insert in the linked list: ");
+    scanf("%d", &n);
+
+    struct node* head = (struct node*)malloc(sizeof(struct node));
+    printf("Enter the data of the first node of the linked list: ");
+    scanf("%d", &head->data);
+    head->next = NULL;
+    struct node* temp = head;
+
+    int cnt = 1;
+    while (cnt < n) {
+        struct node* newnode = (struct node*)malloc(sizeof(struct node));
+        printf("Enter the data of the new node: ");
+        scanf("%d", &newnode->data);
+        newnode->next = NULL;
+        temp->next = newnode;
+        temp = temp->next;
+        cnt++;
+    }
+
+    printf("Here is our linked list:\n");
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+
+    
+    insertatbeg(&head);
+
+    printf("New linked list after the insertion:\n");
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+
+    return 0;
+}
+
+# CREATION AND TRAVERSE #
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node* next;
+};
+
+int main() {
+    int n;
+    printf("Enter the number of nodes you want to insert in the linked list: ");
+    scanf("%d", &n);
+
+    struct node* head = (struct node*)malloc(sizeof(struct node));
+    printf("Enter the data of the first node of the linked list: ");
+    scanf("%d", &head->data);
+    head->next = NULL;
+    struct node* temp = head;
+
+    int cnt = 1;  
+    while (cnt < n) {
+        struct node* newnode = (struct node*)malloc(sizeof(struct node));
+        printf("Enter the data of the new node: ");
+        scanf("%d", &newnode->data);
+        newnode->next = NULL;  
+        temp->next = newnode;
+        temp = temp->next;
+        cnt++;
+    }
+
+    printf("Here is our new linked list:\n");
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+
+    return 0;
+}
+
+# INSERT AT END #
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node* next;
+};
+
+
+struct node * insertatend(struct node* head) {
+    struct node* newnode = (struct node*)malloc(sizeof(struct node));
+    printf("Enter the data of the new node that you want to insert at end : ");
+    scanf("%d" , &newnode -> data);
+    newnode -> next = NULL; 
+    struct node * temp = head ; 
+    while(temp -> next != NULL){
+        temp = temp -> next ; 
+    }
+    temp -> next = newnode ; 
+    return head ; 
+    
+}
+
+int main() {
+    int n;
+    printf("Enter the number of nodes you want to insert in the linked list: ");
+    scanf("%d", &n);
+
+    struct node* head = (struct node*)malloc(sizeof(struct node));
+    printf("Enter the data of the first node of the linked list: ");
+    scanf("%d", &head->data);
+    head->next = NULL;
+    struct node* temp = head;
+
+    int cnt = 1;
+    while (cnt < n) {
+        struct node* newnode = (struct node*)malloc(sizeof(struct node));
+        printf("Enter the data of the new node: ");
+        scanf("%d", &newnode->data);
+        newnode->next = NULL;
+        temp->next = newnode;
+        temp = temp->next;
+        cnt++;
+    }
+
+    printf("Here is our linked list:\n");
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+
+    
+     head = insertatend(head);
+
+    printf("New linked list after the insertion:\n");
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+
+    return 0;
+}
+
+#  INSERT AT POS #
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node* next;
+};
+
+
+struct node * insertaftpos(struct node* head) {
+    printf("enter the node that you want to insert a newnode after that node  : \n");
+    int key ;
+    scanf("%d" , &key );
+    struct node* newnode = (struct node*)malloc(sizeof(struct node));
+    
+    printf("Enter the data of the new node that you want to insert  : ");
+    scanf("%d" , &newnode -> data);
+    newnode -> next = NULL; 
+    struct node * temp = head ; 
+    while(temp -> data != key ){
+        temp = temp -> next ;       
+    }
+    newnode -> next = temp -> next ; 
+    temp -> next = newnode ; 
+    return head ; 
+    
+}
+
+int main() {
+    int n;
+    printf("Enter the number of nodes you want to insert in the linked list: ");
+    scanf("%d", &n);
+
+    struct node* head = (struct node*)malloc(sizeof(struct node));
+    printf("Enter the data of the first node of the linked list: ");
+    scanf("%d", &head->data);
+    head->next = NULL;
+    struct node* temp = head;
+
+    int cnt = 1;
+    while (cnt < n) {
+        struct node* newnode = (struct node*)malloc(sizeof(struct node));
+        printf("Enter the data of the new node: ");
+        scanf("%d", &newnode->data);
+        newnode->next = NULL;
+        temp->next = newnode;
+        temp = temp->next;
+        cnt++;
+    }
+
+    printf("Here is our linked list:\n");
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+
+    
+     head = insertaftpos(head);
+
+    printf("New linked list after the insertion:\n");
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+
+    return 0;
+}
+# DELETE AT BEG #
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node* next;
+};
+
+
+struct node * deletebeg(struct node* head) {
+    struct node * temp = head ; 
+    head = head -> next ; 
+    free(temp);
+    return head ; 
+    
+}
+
+int main() {
+    int n;
+    printf("Enter the number of nodes you want to insert in the linked list: ");
+    scanf("%d", &n);
+
+    struct node* head = (struct node*)malloc(sizeof(struct node));
+    printf("Enter the data of the first node of the linked list: ");
+    scanf("%d", &head->data);
+    head->next = NULL;
+    struct node* temp = head;
+
+    int cnt = 1;
+    while (cnt < n) {
+        struct node* newnode = (struct node*)malloc(sizeof(struct node));
+        printf("Enter the data of the new node: ");
+        scanf("%d", &newnode->data);
+        newnode->next = NULL;
+        temp->next = newnode;
+        temp = temp->next;
+        cnt++;
+    }
+
+    printf("Here is our linked list:\n");
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+
+    
+     head = deletebeg(head);
+
+    printf("New linked list after the deletion at begining :\n");
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+
+    return 0;
+}
+# DELEND #
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node* next;
+};
+
+
+struct node * deleteend(struct node* head) {
+    struct node * temp = head ; 
+    while(temp -> next -> next != NULL){
+        temp = temp -> next ; 
+
+    }
+    struct node * del = temp -> next ; 
+    temp -> next = NULL ; 
+    free(del); 
+    return head ; 
+    
+}
+
+int main() {
+    int n;
+    printf("Enter the number of nodes you want to insert in the linked list: ");
+    scanf("%d", &n);
+
+    struct node* head = (struct node*)malloc(sizeof(struct node));
+    printf("Enter the data of the first node of the linked list: ");
+    scanf("%d", &head->data);
+    head->next = NULL;
+    struct node* temp = head;
+
+    int cnt = 1;
+    while (cnt < n) {
+        struct node* newnode = (struct node*)malloc(sizeof(struct node));
+        printf("Enter the data of the new node: ");
+        scanf("%d", &newnode->data);
+        newnode->next = NULL;
+        temp->next = newnode;
+        temp = temp->next;
+        cnt++;
+    }
+
+    printf("Here is our linked list:\n");
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+
+    
+     head = deleteend(head);
+
+    printf("New linked list after the deletion at end  :\n");
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+
+    return 0;
+}
+
+# DELPOS #
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node* next;
+};
+
+
+struct node * deletaftpos(struct node* head) {
+    struct node * temp = head ; 
+    printf("enter the node that you want to delete after that node ");
+    int key ; 
+    scanf("%d" , &key );
+    while(temp -> data != key ){
+        temp = temp -> next ; 
+    }
+    struct  node *del = temp -> next  ;
+    temp -> next = temp -> next -> next ; 
+    free(del);
+
+    return head ; 
+
+}
+
+int main() {
+    int n;
+    printf("Enter the number of nodes you want to insert in the linked list: ");
+    scanf("%d", &n);
+
+    struct node* head = (struct node*)malloc(sizeof(struct node));
+    printf("Enter the data of the first node of the linked list: ");
+    scanf("%d", &head->data);
+    head->next = NULL;
+    struct node* temp = head;
+
+    int cnt = 1;
+    while (cnt < n) {
+        struct node* newnode = (struct node*)malloc(sizeof(struct node));
+        printf("Enter the data of the new node: ");
+        scanf("%d", &newnode->data);
+        newnode->next = NULL;
+        temp->next = newnode;
+        temp = temp->next;
+        cnt++;
+    }
+
+    printf("Here is our linked list:\n");
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+
+    
+     head = deletaftpos(head);
+
+    printf("New linked list after the deletion  :\n");
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+
+    return 0;
+}
+
