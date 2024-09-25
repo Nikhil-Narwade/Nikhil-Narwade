@@ -1,0 +1,54 @@
+#include<stdio.h>
+#define n 5
+int stack[n];
+int top =-1;
+void push(){//insert data in stack
+    int m;
+    printf("enter data : ");
+    scanf("%d",&m);
+    
+    if(top== n-1){
+        printf("overflow");
+    }else{
+        top++;
+        stack[top] = m;
+    }
+}
+void pop(){
+    int m;
+    if(top==-1){
+        printf("underflow");
+    }else{
+        m = stack[top];
+        top--;
+        printf("%d",m);
+    }
+    printf("\n");
+}
+void print(){
+    for(int i=0;i<=top;i++){
+        printf("%d ",stack[i ]);
+    }
+    printf("\n");
+}
+void rew(){
+    return;
+}
+void main(){
+    int num;
+    do{
+        printf("Enter choice (menu driven) : 1 for push , 2 for pop , 3 for print , 4 for exit: ");
+        scanf("%d",&num);
+        switch (num){
+        case 1 : push();
+        break;
+        case 2 : pop();
+        break;
+        case 3 : print();
+        break;
+        case 4 : rew();
+        break;
+        default : printf("invalid choice\n");
+        }
+    }while(num!=0);
+}
