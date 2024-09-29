@@ -1,54 +1,139 @@
-#include<stdio.h>
+# stack implementation push , pop, display#
+#include <stdio.h>
 #define n 5
 int stack[n];
-int top =-1;
-void push(){//insert data in stack
+int top = -1;
+void push()
+{ // insert data in stack
     int m;
     printf("enter data : ");
-    scanf("%d",&m);
-    
-    if(top== n-1){
+    scanf("%d", &m);
+
+    if (top == n - 1)
+    {
         printf("overflow");
-    }else{
+    }
+    else
+    {
         top++;
         stack[top] = m;
     }
 }
-void pop(){
+void pop()
+{
     int m;
-    if(top==-1){
+    if (top == -1)
+    {
         printf("underflow");
-    }else{
+    }
+    else
+    {
         m = stack[top];
         top--;
-        printf("%d",m);
+        printf("%d", m);
     }
     printf("\n");
 }
-void print(){
-    for(int i=0;i<=top;i++){
-        printf("%d ",stack[i ]);
+void print()
+{
+    for (int i = 0; i <= top; i++)
+    {
+        printf("%d ", stack[i]);
     }
     printf("\n");
 }
-void rew(){
+void rew()
+{
     return;
 }
-void main(){
+void main()
+{
     int num;
-    do{
+    do
+    {
         printf("Enter choice (menu driven) : 1 for push , 2 for pop , 3 for print , 4 for exit: ");
-        scanf("%d",&num);
-        switch (num){
-        case 1 : push();
-        break;
-        case 2 : pop();
-        break;
-        case 3 : print();
-        break;
-        case 4 : rew();
-        break;
-        default : printf("invalid choice\n");
+        scanf("%d", &num);
+        switch (num)
+        {
+        case 1:
+            push();
+            break;
+        case 2:
+            pop();
+            break;
+        case 3:
+            print();
+            break;
+        case 4:
+            rew();
+            break;
+        default:
+            printf("invalid choice\n");
         }
-    }while(num!=0);
+    } while (num != 0);
+}
+
+# stack implementation using linked list #
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *next;
+};
+
+struct node *TOP = 0; // used as head
+void push(int x)
+{
+
+    struct node *new;
+    new = (struct node *)malloc(sizeof(struct node));
+    new->data = x;
+    new->next = TOP;
+    TOP = new;
+}
+void pop()
+{
+    struct node *t;
+    if (TOP == NULL)
+        printf("underflow\n");
+    else
+    {
+
+        t = TOP;
+        TOP = TOP->next;
+        free(t);
+        t = NULL;
+    }
+}
+// printf final ans.
+void display()
+{
+    struct node *p;
+    p = TOP;
+
+    if (TOP == 0)
+        printf("list is empty");
+    else
+    {
+        while (p != NULL)
+        {
+
+            printf("%d -> ", p->data);
+            p = p->next;
+        }
+    }
+}
+
+void main()
+{
+
+    push(10);
+    push(20);
+    push(30);
+    pop();
+    push(40);
+    display();
 }
