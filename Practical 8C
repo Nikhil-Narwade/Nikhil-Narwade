@@ -1,0 +1,97 @@
+//circular queue //
+
+
+#include<stdio.h>
+#define Max 5
+int myqueue[Max];
+int F=-1, R=-1;
+
+void insert()
+{
+ int item;
+ printf("Enter item:\n");
+scanf("%d",&item);
+if(F==0 && R==(Max-1) || F==R+1)
+{
+  printf("Full\n");
+}
+else
+{
+    if(R==Max-1)
+    {
+        R=0;
+    }
+    else
+    {
+        R=R+1;
+    }
+    F=0;
+    myqueue[R]=item;
+    printf("inserted\n");
+}
+}
+
+void delete()
+{
+    int item;
+    if(F==-1)
+    {
+        printf("Empty\n");
+        
+    }
+    if(F==R)
+    {
+        F=-1;
+        R=-1;
+    }
+    if(F==(Max-1))
+    {
+        F=0;
+    }
+    else
+    {
+        F=F+1;
+    }
+}
+
+void display()
+{
+    int i;
+    if(R==-1)
+    {
+        printf("Empty\n");
+    }
+    else
+    {
+       printf("Values\n");
+       for(i=F;i<=R;i++)
+            printf("%d ",myqueue[i]);
+        
+    }
+    
+}
+void main()
+{
+    int choice;
+    do
+    {
+        printf("\n1-insert\n2-delete\n3-display\n4-exit\n");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1 : insert();
+                     break;
+                     
+            case 2 : delete();
+                     break;      
+                     
+            case 3 : display();
+                     break;
+             case 4 : 
+                     break;
+           default : printf("Invalid\n");
+                     break;
+            
+        }
+    }while(choice!=4);
+}
