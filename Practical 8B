@@ -1,0 +1,100 @@
+//queue by linked list //
+
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node* next;
+};
+struct node* s;
+struct node* F;
+struct node* R;
+
+void insert()
+{
+  struct node* p;
+  p=(struct node*)malloc(sizeof(struct node));
+  if(p==NULL)
+  printf("overflow\n");
+ 
+else
+{
+    printf("Enter element\n");
+    scanf("%d",&p->data);
+    if(F==NULL)
+    {
+        F=p;
+        R=p;
+        F->next=NULL;
+        R->next=NULL;
+    }
+    else
+    {
+        R->next=p;
+        R=p;
+        p->next=NULL;
+    }
+
+}
+}
+
+void delete()
+{
+    struct node* p;
+    if(F==NULL)
+    {
+        printf("Underflow\n");
+        
+    }
+    
+    else
+    {
+        p=F;
+        F=F->next;
+        free(p);
+    }
+    
+}
+
+void display()
+{
+    struct node* p;
+    struct node*q ;
+    p=R;
+    q=F;
+    while(q!=NULL)
+    {
+        printf("%d ",q->data);
+        q=q->next;
+        
+    }
+    
+}
+void main()
+{
+    int choice;
+    
+    do
+    {
+        
+        printf("\n1-insert\n2-delete\n3-display\n4-exit\n");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1 : insert();
+                     break;
+                     
+            case 2 : delete();
+                     break;      
+                     
+            case 3 : display();
+                     break;
+             case 4 : 
+                     break;
+           default : printf("Invalid\n");
+                     break;
+            
+        }
+    }while(choice!=4);
+}
